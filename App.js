@@ -12,6 +12,12 @@ const intro = 'Welcome to Rollover friend of Rob. You are wise';
 let gyroAboard = Gyroscope.isAvailableAsync()
     .then( (val) => console.log("gyroscope available: ", val));
 
+Gyroscope.setUpdateInterval(5000);
+
+Gyroscope.addListener(gyroScopeData => {
+    console.log(gyroScopeData);
+});
+
 export default function App() {
   return (
     <View style={styles.container}>
