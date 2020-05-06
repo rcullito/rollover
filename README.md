@@ -1,8 +1,8 @@
 
-`nvm install v14.0.0`
+1. `nvm use v14.0.0`
 
-can probably just use "use" here too
+TODO set this to default on terminal startup
 
-1. `expo start`
+2. `expo start`
 
 https://docs.expo.io/tutorial/text/
