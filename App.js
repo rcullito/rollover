@@ -7,7 +7,7 @@ const instructions = Platform.select({
   android: `Double tap R on your keyboard to reload,\nShake or press menu button for dev menu`,
 });
 
-const intro = 'Welcome to Rollover friend of Rob. Caya von dios?';
+const intro = 'Welcome to Rollover friend of Rob. look at echo area';
 
 let gyroAboard = Gyroscope.isAvailableAsync()
     .then( (val) => console.log("gyroscope available: ", val));
