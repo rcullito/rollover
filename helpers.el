@@ -42,7 +42,7 @@
     (user-error "Nothing staged"))))
 
 
-;; THIS IS IT!!!!
+;; nice work
 (defun quick-commit (commit-message)
   (interactive "sEnter your commit message: ")
   (cond 
