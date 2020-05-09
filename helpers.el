@@ -32,7 +32,7 @@
    ;; if there are staged changes, assume that anything unstage is intended and
    ;; just get on with things
    ((magit-anything-staged-p)
-    (interactive "sEnter your commit message: "))
+    (y-or-n-p "sEnter your commit message: "))
     ;; if there are unstaged changes, shall we add them?
    ((magit-anything-unstaged-p)
     (when (y-or-n-p "Stage and commit all unstaged changes? ")
