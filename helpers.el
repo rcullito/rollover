@@ -42,15 +42,18 @@
     (user-error "Nothing staged"))))
 
 
-
-
+;; THIS IS IT!!!!
 (defun quick-commit (commit-message)
   (interactive "sEnter your commit message: ")
-  ;; put check here
-  (if (magit-anything-unstaged-p)
-      (when (y-or-n-p "Stage and commit all unstaged changes? ")
-      (magit-run-git "add" "-u" ".")))
-  (when (magit-git-success "commit" "-m" commit-message)
-    (progn (message "commmited!")
-           (magit-refresh-buffer))))
+  (cond 
+   ((magit-anything-unstaged-p)
+    (when (y-or-n-p "Stage and commit all unstaged changes? ")
+      (progn (magit-run-git "add" "-u" ".")
+             (quick-commit commit-message))))
+   ((magit-anything-staged-p)
+    (when (magit-git-success "commit" "-m" commit-message)
+      (progn (message "commmited!")
+             (magit-refresh-buffer))))
+   (t
+    (user-error "Nothing staged"))))
 
