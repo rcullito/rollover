@@ -16,12 +16,11 @@
 
 
 
-(defun quick-commit (commit-message)
-  ;; first check to see if anything is even commited!
-  (interactive "sEnter your commit message: ")
-  (when (magit-git-success "commit" "-m" commit-message)
-    (progn (message "commmited!")
-           (magit-refresh-buffer))))
+(defun quick-commit ()
+  (let (commit-message (read-string (message "Enter your commit message: ")))
+    (when (magit-git-success "commit" "-m" commit-message)
+      (progn (message "commmited!")
+             (magit-refresh-buffer)))))
 
 
 
@@ -32,7 +31,7 @@
    ;; if there are staged changes, assume that anything unstage is intended and
    ;; just get on with things
    ((magit-anything-staged-p)
-    (y-or-n-p "sEnter your commit message: "))
+    (quick-commit))
     ;; if there are unstaged changes, shall we add them?
    ((magit-anything-unstaged-p)
     (when (y-or-n-p "Stage and commit all unstaged changes? ")
@@ -43,6 +42,15 @@
     (user-error "Nothing staged"))))
 
 
-(defun the-depths ()
-  (user-error "Nothing staged"))
+
+
+(defun quick-commit (commit-message)
+  (interactive "sEnter your commit message: ")
+  ;; put check here
+  (if (magit-anything-unstaged-p)
+      (when (y-or-n-p "Stage and commit all unstaged changes? ")
+      (magit-run-git "add" "-u" ".")))
+  (when (magit-git-success "commit" "-m" commit-message)
+    (progn (message "commmited!")
+           (magit-refresh-buffer))))
 
