@@ -13,3 +13,8 @@ When Expo does not work with the local IP
 2. restart app on android
 
 https://github.com/expo/expo/issues/1381
+
+
+Items to look into
+: not having to restart wifi
+: not having to force quit the expo app

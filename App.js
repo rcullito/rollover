@@ -9,20 +9,40 @@ const instructions = Platform.select({
 
 const intro = 'Welcome to Rollover friend of Rob. look at the destructuring';
 
-DeviceMotion.setUpdateInterval(500);
+DeviceMotion.setUpdateInterval(1500);
+
+let oldRotations = [0,0,0];
+
+// rotations are used externally
+// values are used internally
+
+const evaluateDifference = (newValues) => {
+
+    console.log("old rotations are: ");
+    console.log(oldRotations);
+
+    let index = 0;
+    while (index < newValues.length) { 
+        let compareValue = oldRotations[index];
+        let difference = newValues[index] - compareValue;
+        if ( difference > 0.5) {
+            console.log("ok we are on the move");
+        }
+        index++; 
+    }
+
+    oldRotations = newValues;
+}
 
 DeviceMotion.addListener(motionData => {
 
-    let accelerationData = motionData["acceleration"];
-    let { x, y, z } = accelerationData;
-    // only log if any of the values are over a certain threshold
-    // get a feel for how chatty this is
-    let movementThreshold = 0.75;
-    if (x >= movementThreshold || y >= movementThreshold || z >= movementThreshold) {
-        console.log("x is: ", x);
-        console.log("y is: ", y);
-        console.log ("z is: ", z)
+    let rotation = motionData['rotation'];
+    if (rotation) {
+        let newRotations = [rotation['alpha'], rotation['beta'], rotation['gamma']];
+        console.log(newRotations);
+        evaluateDifference(newRotations);
     }
+ 
 });
 
 export default function App() {
