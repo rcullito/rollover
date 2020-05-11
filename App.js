@@ -9,10 +9,6 @@ const instructions = Platform.select({
 
 const intro = 'Welcome to Rollover friend of Rob. look at the destructuring';
 
-/*
-let gyroAboard = Gyroscope.isAvailableAsync()
-    .then( (val) => console.log("gyroscope available: ", val));
-*/
 Gyroscope.setUpdateInterval(4000);
 
 Gyroscope.addListener(gyroScopeData => {
