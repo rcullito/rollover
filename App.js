@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import { Gyroscope } from 'expo-sensors';
+import { DeviceMotion } from 'expo-sensors';
 
 const instructions = Platform.select({
   ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
@@ -9,16 +9,16 @@ const instructions = Platform.select({
 
 const intro = 'Welcome to Rollover friend of Rob. look at the destructuring';
 
-Gyroscope.setUpdateInterval(1000);
+DeviceMotion.setUpdateInterval(1000);
 
+DeviceMotion.addListener(motionData => {
 
-// ok TODO, beyond turning a certain number of radians
-// in just ONE direction, vibrate phone
-Gyroscope.addListener(gyroScopeData => {
-    let { x, y, z } = gyroScopeData;
+    let accelerationData = motionData["acceleration"];
+    let { x, y, z } = accelerationData;
     // only log if any of the values are over a certain threshold
     // get a feel for how chatty this is
-    if (x >= 1 || y >=1 || z >= 1) {
+    let movementThreshold = 0.5;
+    if (x >= movementThreshold || y >=movementThreshold || z >= movementThreshold) {
         console.log("x is: ", x);
         console.log("y is: ", y);
         console.log ("z is: ", z)
