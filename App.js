@@ -9,7 +9,7 @@ const instructions = Platform.select({
 
 const intro = 'Welcome to Rollover friend of Rob. look at the destructuring';
 
-DeviceMotion.setUpdateInterval(1000);
+DeviceMotion.setUpdateInterval(500);
 
 DeviceMotion.addListener(motionData => {
 
@@ -18,7 +18,7 @@ DeviceMotion.addListener(motionData => {
     // only log if any of the values are over a certain threshold
     // get a feel for how chatty this is
     let movementThreshold = 0.5;
-    if (x >= movementThreshold || y >=movementThreshold || z >= movementThreshold) {
+    if (x >= movementThreshold || y >= movementThreshold || z >= movementThreshold) {
         console.log("x is: ", x);
         console.log("y is: ", y);
         console.log ("z is: ", z)
