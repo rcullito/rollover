@@ -7,15 +7,18 @@ const instructions = Platform.select({
   android: `Double tap R on your keyboard to reload,\nShake or press menu button for dev menu`,
 });
 
-const intro = 'Welcome to Rollover friend of Rob. look at echo area';
+const intro = 'Welcome to Rollover friend of Rob. look at the destructuring';
 
+/*
 let gyroAboard = Gyroscope.isAvailableAsync()
     .then( (val) => console.log("gyroscope available: ", val));
-
-Gyroscope.setUpdateInterval(5000);
+*/
+Gyroscope.setUpdateInterval(4000);
 
 Gyroscope.addListener(gyroScopeData => {
-    console.log(gyroScopeData);
+    let { x, y, z } = gyroScopeData;
+    console.log(x);
+    console.log(y);
 });
 
 export default function App() {
