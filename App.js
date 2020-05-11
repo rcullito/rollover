@@ -9,12 +9,20 @@ const instructions = Platform.select({
 
 const intro = 'Welcome to Rollover friend of Rob. look at the destructuring';
 
-Gyroscope.setUpdateInterval(4000);
+Gyroscope.setUpdateInterval(1000);
 
+
+// ok TODO, beyond turning a certain number of radians
+// in just ONE direction, vibrate phone
 Gyroscope.addListener(gyroScopeData => {
     let { x, y, z } = gyroScopeData;
-    console.log(x);
-    console.log(y);
+    // only log if any of the values are over a certain threshold
+    // get a feel for how chatty this is
+    if (x >= 1 || y >=1 || z >= 1) {
+        console.log("x is: ", x);
+        console.log("y is: ", y);
+        console.log ("z is: ", z)
+    }
 });
 
 export default function App() {

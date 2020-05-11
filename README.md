@@ -9,8 +9,7 @@ https://docs.expo.io/tutorial/text/
 
 When Expo does not work with the local IP
 
-turn off wifi on both phone & laptop
+1. turn off wifi on both phone & laptop
+2. restart app on android
 
 https://github.com/expo/expo/issues/1381
-
-
