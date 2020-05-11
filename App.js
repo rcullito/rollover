@@ -17,7 +17,7 @@ DeviceMotion.addListener(motionData => {
     let { x, y, z } = accelerationData;
     // only log if any of the values are over a certain threshold
     // get a feel for how chatty this is
-    let movementThreshold = 0.5;
+    let movementThreshold = 0.75;
     if (x >= movementThreshold || y >= movementThreshold || z >= movementThreshold) {
         console.log("x is: ", x);
         console.log("y is: ", y);
