@@ -13,17 +13,17 @@ DeviceMotion.setUpdateInterval(1000);
 
 let oldRotations = [0,0,0];
 
-// rotations are used externally
-// values are used internally
-
 const evaluateDifference = (newValues) => {
 
     let index = 0;
     while (index < newValues.length) { 
-        let compareValue = oldRotations[index];
-        let difference = newValues[index] - compareValue;
-        if ( difference > 0.5) {
+        let oldRotationValue = oldRotations[index];
+        let newRotationValue = newValues[index];
+        let difference = newRotationValue - oldRotationValue;
+        if ( Math.abs(difference) > 0.5) {
             console.log("ok we are on the move");
+            console.log(oldRotationValue);
+            console.log(newRotationValue);
         }
         index++; 
     }
@@ -36,7 +36,6 @@ DeviceMotion.addListener(motionData => {
     let rotation = motionData['rotation'];
     if (rotation) {
         let newRotations = [rotation['alpha'], rotation['beta'], rotation['gamma']];
-        console.log(newRotations);
         evaluateDifference(newRotations);
     }
  
