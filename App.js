@@ -9,7 +9,7 @@ const instructions = Platform.select({
 
 const intro = 'Welcome to Rollover friend of Rob. look at the destructuring';
 
-DeviceMotion.setUpdateInterval(1500);
+DeviceMotion.setUpdateInterval(1000);
 
 let oldRotations = [0,0,0];
 
@@ -17,9 +17,6 @@ let oldRotations = [0,0,0];
 // values are used internally
 
 const evaluateDifference = (newValues) => {
-
-    console.log("old rotations are: ");
-    console.log(oldRotations);
 
     let index = 0;
     while (index < newValues.length) { 
