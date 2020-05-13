@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import startDeviceMotion from "./logic";
 
 const instructions = Platform.select({
@@ -19,9 +19,15 @@ export default function App() {
       <Text style={styles.instructions}>To get started, edit App.js</Text>
       <Text style={styles.instructions}>{instructions}</Text>
       <Text style={styles.instructions}>{intro}</Text>
-      <button onclick="startDeviceMotion()">
-        Activate Lasers
-      </button>
+
+       <TouchableOpacity
+        onPress={() => alert('Hello, world!')}
+        style={{ backgroundColor: 'blue' }}>
+        <Text style={{ fontSize: 20, color: '#fff' }}>Pick a photo</Text>
+          </TouchableOpacity>
+
+
+      
     </View>
   );
 }
