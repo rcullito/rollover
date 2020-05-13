@@ -3,7 +3,7 @@
 
 TODO set this to default on terminal startup
 
-2. `expo start`
+2. `expo start --android`
 
 https://docs.expo.io/tutorial/text/
 

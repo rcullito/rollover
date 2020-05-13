@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View, Vibration } from 'react-native';
 import { DeviceMotion } from 'expo-sensors';
 
 const instructions = Platform.select({
   ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
   android: `Double tap R on your keyboard to reload,\nShake or press menu button for dev menu`,
 });
+
+const PATTERN = [1000, 2000, 3000];
 
 const intro = 'Welcome to Rollover friend of Rob. look at the destructuring';
 
@@ -24,6 +26,7 @@ const evaluateDifference = (newValues) => {
             console.log("ok we are on the move");
             console.log(oldRotationValue);
             console.log(newRotationValue);
+            Vibration.vibrate(PATTERN);
         }
         index++; 
     }
