@@ -7,8 +7,9 @@ const instructions = Platform.select({
   android: `Double tap R on your keyboard to reload,\nShake or press menu button for dev menu`,
 });
 
+const INITIALPAUSE = 50;
 const PAUSE = 3000;
-const PATTERN = [PAUSE, 1000, PAUSE, 3000, PAUSE, 5000];
+const PATTERN = [INITIALPAUSE, 1000, PAUSE, 3000, PAUSE, 5000];
 
 const intro = 'Welcome to Rollover friend of Rob. look at the destructuring';
 
