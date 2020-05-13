@@ -1,15 +1,16 @@
 import * as React from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import logic from "./logic";
+import startDeviceMotion from "./logic";
 
 const instructions = Platform.select({
   ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
   android: `Double tap R on your keyboard to reload,\nShake or press menu button for dev menu`,
 });
 
-
 const intro = 'Rollover: an app designed to help make you more aware of your movements during sleep';
 
+// make a button to start device motion from
+// this means we would probably also need a stop function :)
 
 export default function App() {
   return (
@@ -18,6 +19,9 @@ export default function App() {
       <Text style={styles.instructions}>To get started, edit App.js</Text>
       <Text style={styles.instructions}>{instructions}</Text>
       <Text style={styles.instructions}>{intro}</Text>
+      <button onclick="startDeviceMotion()">
+        Activate Lasers
+      </button>
     </View>
   );
 }
