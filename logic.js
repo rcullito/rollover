@@ -42,5 +42,11 @@ const startDeviceMotion = () => {
 
 }
 
+const stopDeviceMotion = () => {
+    
+    DeviceMotion.removeAllListeners()
+
+}
+
 
 export default startDeviceMotion;
