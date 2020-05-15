@@ -5,37 +5,35 @@ import startDeviceMotion from "./logic";
 const intro = 'Rollover: an app designed to help make you more aware of your movements during sleep';
 
 
-function Motion(props) {
-    
-let startComponent = <TouchableOpacity
-      onPress={() => startDeviceMotion()}
-      style={{ backgroundColor: 'blue' }}>
-          <Text style={{ fontSize: 20, color: '#fff' }}>Start Motion Sensor</Text>
-        </TouchableOpacity>
+class MotionButton extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      inmotion: false,
+    };
+  }
 
-    let stopComponent = <TouchableOpacity
-      style={{ backgroundColor: 'blue' }}>
-          <Text style={{ fontSize: 20, color: '#fff' }}>Stop Motion Sensor</Text>
-          </TouchableOpacity> 
+  updateInmotion() {
+    this.setState((prevState, props) => {
+      return { inmotion: !prevState.inmotion }
+    });
+  }
 
-    let started = props.started;
-
-    if (started) {
-        return stopComponent
-    }
-
-    return startComponent;
-
+  render() {
+    return (<button
+              onClick={() => this.updateInmotion()}
+            >
+            {inmotion ? 'Stop Motion Sensor' : 'Start Motion Sensor'}
+            </button>);
+  }
 }
 
 export default function App() {
 
-  let motionState = 0;
-    
   return (
     <View style={styles.container}>
           <Text style={styles.instructions}>{intro}</Text>
-          <Motion started={false}></Motion>
+          <MotionButton></MotionButton>
     </View>
   );
 }
