@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import startDeviceMotion from "./logic";
+import { startDeviceMotion, stopDeviceMotion } from "./logic";
 
 const intro = 'Rollover: an app designed to help make you more aware of your movements during sleep';
 
@@ -13,12 +13,21 @@ class MotionButton extends React.Component {
       inmotion: false,
     };
   }
-    
+
+
+    // TODO work with the subscription from the individual
+    // listener rather than having to remove all listeners
     updateInmotion = () => {
-        console.log("something is happening");
-    this.setState({
-      inmotion: !this.state.inmotion
-    });
+
+        if (this.state.inmotion) {
+            stopDeviceMotion();
+        } else {
+            startDeviceMotion();
+        }
+        
+        this.setState({
+            inmotion: !this.state.inmotion
+        });
   }
 
 

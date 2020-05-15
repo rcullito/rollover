@@ -49,4 +49,4 @@ const stopDeviceMotion = () => {
 }
 
 
-export default startDeviceMotion;
+export { startDeviceMotion, stopDeviceMotion };
