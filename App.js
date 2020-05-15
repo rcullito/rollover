@@ -4,7 +4,6 @@ import startDeviceMotion from "./logic";
 
 const intro = 'Rollover: an app designed to help make you more aware of your movements during sleep';
 
-
 class MotionButton extends React.Component {
   constructor() {
     super();
@@ -20,11 +19,12 @@ class MotionButton extends React.Component {
   }
 
   render() {
-    return (<button
-              onClick={() => this.updateInmotion()}
-            >
-            {inmotion ? 'Stop Motion Sensor' : 'Start Motion Sensor'}
-            </button>);
+      return (
+          <TouchableOpacity onClick={() => this.updateInmotion()}
+      style={{ backgroundColor: 'blue' }}>
+          <Text style={{ fontSize: 20, color: '#fff' }}>Stop Motion Sensor</Text>
+          </TouchableOpacity> 
+      );
   }
 }
 
@@ -34,7 +34,7 @@ export default function App() {
     <View style={styles.container}>
           <Text style={styles.instructions}>{intro}</Text>
           <MotionButton></MotionButton>
-    </View>
+</View>
   );
 }
 
