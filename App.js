@@ -21,13 +21,10 @@ export default function App() {
       <Text style={styles.instructions}>{intro}</Text>
 
        <TouchableOpacity
-        onPress={() => alert('Hello, world!')}
+      onPress={() => startDeviceMotion()}
         style={{ backgroundColor: 'blue' }}>
-        <Text style={{ fontSize: 20, color: '#fff' }}>Pick a photo</Text>
+        <Text style={{ fontSize: 20, color: '#fff' }}>Start Motion Sensor</Text>
           </TouchableOpacity>
-
-
-      
     </View>
   );
 }
