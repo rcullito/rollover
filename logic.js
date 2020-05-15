@@ -17,10 +17,9 @@ const evaluateDifference = (newValues) => {
         let newRotationValue = newValues[index];
         let difference = newRotationValue - oldRotationValue;
         if ( Math.abs(difference) > 0.5) {
-            console.log("ok we are on the move");
-            console.log(oldRotationValue);
-            console.log(newRotationValue);
-            // default to 400ms
+            console.log("toast"); // https://www.youtube.com/watch?v=fq6R39wWXGM
+//            console.log(oldRotationValue);
+//            console.log(newRotationValue);
             Vibration.vibrate(PATTERN);
         }
         index++; 
