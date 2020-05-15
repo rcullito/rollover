@@ -4,16 +4,20 @@ import startDeviceMotion from "./logic";
 
 const intro = 'Rollover: an app designed to help make you more aware of your movements during sleep';
 
+
+function StartMotion(props) {
+    return <TouchableOpacity
+      onPress={() => startDeviceMotion()}
+      style={{ backgroundColor: 'blue' }}>
+          <Text style={{ fontSize: 20, color: '#fff' }}>Start Motion Sensor Yall</Text>
+          </TouchableOpacity> 
+}
+
 export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.instructions}>{intro}</Text>
-
-       <TouchableOpacity
-      onPress={() => startDeviceMotion()}
-        style={{ backgroundColor: 'blue' }}>
-        <Text style={{ fontSize: 20, color: '#fff' }}>Start Motion Sensor</Text>
-          </TouchableOpacity>
+      <StartMotion/>
     </View>
   );
 }
