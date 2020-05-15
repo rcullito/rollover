@@ -4,25 +4,32 @@ import startDeviceMotion from "./logic";
 
 const intro = 'Rollover: an app designed to help make you more aware of your movements during sleep';
 
+console.log("bleh");
+
 class MotionButton extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+      super(props);
+      this.updateInmotion = this.updateInmotion.bind(this);
     this.state = {
-      inmotion: false,
+      inmotion: "bob",
     };
   }
-
-  updateInmotion() {
-    this.setState((prevState, props) => {
-      return { inmotion: !prevState.inmotion }
+    
+    updateInmotion = () => {
+        console.log("something is happening");
+    this.setState({
+      inmotion: "mary"
     });
   }
 
+
   render() {
       return (
-          <TouchableOpacity onClick={() => this.updateInmotion()}
+              <TouchableOpacity onPress={this.updateInmotion}
       style={{ backgroundColor: 'blue' }}>
-          <Text style={{ fontSize: 20, color: '#fff' }}>Stop Motion Sensor</Text>
+              <Text style={{ fontSize: 20, color: '#fff' }}>
+              {this.state.inmotion}
+          </Text>
           </TouchableOpacity> 
       );
   }
