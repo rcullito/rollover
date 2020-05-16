@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ImageBackground, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { startDeviceMotion, stopDeviceMotion } from "./logic";
 
 const intro = 'Rollover: an app designed to help make you more aware of your movements during sleep';
@@ -46,7 +46,9 @@ class MotionButton extends React.Component {
 export default function App() {
 
   return (
-    <View style={styles.container}>
+          <View style={styles.container}>
+                  <ImageBackground source={require('./starry-sky-night-mountians-5k.jpg')} style={{width: '100%', height: '100%'}}>
+                  </ImageBackground>
           <Text style={styles.instructions}>{intro}</Text>
           <MotionButton></MotionButton>
 </View>
@@ -58,7 +60,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+      width: null,
+      height: null,
   },
   instructions: {
     textAlign: 'center',
