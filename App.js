@@ -34,8 +34,9 @@ class MotionButton extends React.Component {
   render() {
       return (
               <TouchableOpacity onPress={this.updateInmotion}
-      style={{ backgroundColor: 'blue' }}>
-              <Text style={{ fontSize: 20, color: '#fff' }}>
+          // TODO get these styles to the bottom, and then ultimately split them out into their own file
+      style={styles.motionButton}>
+              <Text style={styles.motionButtonText}>
               {this.state.inmotion ? 'Stop motion sensor' : 'Start motion sensor'}
           </Text>
           </TouchableOpacity> 
@@ -46,12 +47,12 @@ class MotionButton extends React.Component {
 export default function App() {
 
   return (
+          <ImageBackground source={require('./starry-sky-night-mountians-5k.jpg')} style={styles.container}>
           <View style={styles.container}>
-          <ImageBackground source={require('./starry-sky-night-mountians-5k.jpg')} style={{width: '100%', height: '100%'}}>
           <Text style={styles.instructions}>{intro}</Text>
           <MotionButton></MotionButton>
-      </ImageBackground>
-</View>
+          </View>
+          </ImageBackground>
   );
 }
 
@@ -65,6 +66,15 @@ const styles = StyleSheet.create({
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
+      color: '#fff',
+      marginBottom: 15
   },
+    motionButton: {
+        backgroundColor: 'blue'
+        
+    },
+    motionButtonText: {
+        fontSize: 20,
+        color: '#fff'
+    }
 });
