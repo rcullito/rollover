@@ -47,10 +47,10 @@ export default function App() {
 
   return (
           <View style={styles.container}>
-                  <ImageBackground source={require('./starry-sky-night-mountians-5k.jpg')} style={{width: '100%', height: '100%'}}>
-                  </ImageBackground>
+          <ImageBackground source={require('./starry-sky-night-mountians-5k.jpg')} style={{width: '100%', height: '100%'}}>
           <Text style={styles.instructions}>{intro}</Text>
           <MotionButton></MotionButton>
+      </ImageBackground>
 </View>
   );
 }
@@ -66,6 +66,5 @@ const styles = StyleSheet.create({
   instructions: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
   },
 });
