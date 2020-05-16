@@ -14,7 +14,9 @@ const styles = StyleSheet.create({
       marginBottom: 15
   },
     motionButton: {
-        backgroundColor: 'blue'
+        backgroundColor: '#8a2be2',
+        padding: 12,
+        borderRadius: 13
         
     },
     motionButtonText: {
