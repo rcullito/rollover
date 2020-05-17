@@ -1,6 +1,6 @@
 import SineWaves  from 'sine-waves';
 
-const makeWaves = (elementId) => {
+const makeWaves = (elementId, amplitudes) => {
 
     var waves = new SineWaves({
   el: document.getElementById(elementId),
@@ -19,32 +19,35 @@ const makeWaves = (elementId) => {
   
   wavesWidth: '70%',
   
-  waves: [
+        waves: [
+            /*
     {
       timeModifier: 4,
       lineWidth: 1,
-      amplitude: -25,
-      wavelength: 25
+      amplitude: -amplitudes[0],
+      wavelength: amplitudes[0]
     },
     {
       timeModifier: 2,
       lineWidth: 2,
-      amplitude: -50,
-      wavelength: 50
+      amplitude: -amplitudes[1],
+      wavelength: amplitudes[1]
     },
     {
       timeModifier: 1,
       lineWidth: 1,
-      amplitude: -100,
-      wavelength: 100
+      amplitude: -amplitudes[2],
+      wavelength: amplitudes[2]
     },
+
+*/
 
 // rob edit to 150 rather than 200 as the next increment
       {
-      timeModifier: 0.5,
+      timeModifier: 0.5, // speed
       lineWidth: 1,
-      amplitude: -150,
-      wavelength: 150
+      amplitude: -amplitudes[3],
+      wavelength: amplitudes[3]
     },
 /*
     {
