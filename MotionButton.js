@@ -2,6 +2,7 @@ import * as React from 'react';
 import styles from './styles.js';
 import {Text, TouchableOpacity } from 'react-native';
 import { startDeviceMotion, stopDeviceMotion } from "./logic";
+import makeWaves from './waves.js'
 
 class MotionButton extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class MotionButton extends React.Component {
             stopDeviceMotion();
         } else {
             startDeviceMotion();
+            makeWaves('waves');            
         }
         
         this.setState({

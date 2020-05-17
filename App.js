@@ -2,17 +2,13 @@ import * as React from 'react';
 import { ImageBackground, Text, View } from 'react-native';
 import styles from './styles.js';
 import MotionButton from './MotionButton.js';
-import makeWaves from './waves.js'
+
 
 const intro = 'Rollover: an app designed to help make you more aware of your movements during sleep';
 
 
 class WaveForm extends React.Component {
 
-    componentDidMount() {
-        makeWaves('waves');
-    }
-    
   render() {
     return (
       <div>
