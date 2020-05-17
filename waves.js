@@ -3,60 +3,83 @@ import SineWaves  from 'sine-waves';
 const makeWaves = (elementId) => {
 
     var waves = new SineWaves({
-        // Canvas Element
-        el: document.getElementById(elementId),
+  el: document.getElementById(elementId),
+  
+  speed: 4,
+  
+  width: function() {
+    return 1745;
+  },
+  
+  height: function() {
+    return 800;
+  },
+  
+  ease: 'SineInOut',
+  
+  wavesWidth: '70%',
+  
+  waves: [
+    {
+      timeModifier: 4,
+      lineWidth: 1,
+      amplitude: -25,
+      wavelength: 25
+    },
+    {
+      timeModifier: 2,
+      lineWidth: 2,
+      amplitude: -50,
+      wavelength: 50
+    },
+    {
+      timeModifier: 1,
+      lineWidth: 1,
+      amplitude: -100,
+      wavelength: 100
+    },
 
-        // General speed of entire wave system
-        speed: 8,
-
-        // How many degress should we rotate all of the waves
-        rotate: 0,
-
-        // Ease function from left to right
-        ease: 'Linear',
-
-        // Specific how much the width of the canvas the waves should be
-        // This can either be a number or a percent
-        waveWidth: '95%',
-
-        // An array of wave options
-        waves: [
-            {
-                timeModifier: 1,   // This is multiplied againse `speed`
-                lineWidth: 3,      // Stroke width
-                amplitude: 150,    // How tall is the wave
-                wavelength: 200,   // How long is the wave
-                segmentLength: 20, // How smooth should the line be
-                strokeStyle: 'rgba(255, 255, 255, 0.5)', // Stroke color and opacity
-                type: 'sine'       // Wave type
-            },
-            {
-                timeModifier: 1,
-                lineWidth: 2,
-                amplitude: 150,
-                wavelength: 100,
-                strokeStyle: 'rgba(255, 255, 255, 0.3)'
-            }
-        ],
-
-        // Perform any additional initializations here
-        initialize: function (){},
-
-        // This function is called whenver the window is resized
-        resizeEvent: function() {
-
-            // Here is an example on how to create a gradient stroke
-            var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
-            gradient.addColorStop(0,"rgba(0, 0, 0, 0)");
-            gradient.addColorStop(0.5,"rgba(255, 255, 255, 0.5)");
-            gradient.addColorStop(1,"rgba(0, 0, 0, 0)");
-
-            var index = -1;
-            var length = this.waves.length;
-            while(++index < length){
-                this.waves[index].strokeStyle = gradient;
-            }
-        }
+// rob edit to 150 rather than 200 as the next increment
+      {
+      timeModifier: 0.5,
+      lineWidth: 1,
+      amplitude: -150,
+      wavelength: 150
+    },
+/*
+    {
+      timeModifier: 0.5,
+      lineWidth: 1,
+      amplitude: -200,
+      wavelength: 200
+    },
+    {
+      timeModifier: 0.25,
+      lineWidth: 2,
+      amplitude: -400,
+      wavelength: 400
+    }
+*/
+  ],
+ 
+  // Called on window resize
+  resizeEvent: function() {
+    var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
+    gradient.addColorStop(0,"rgba(23, 210, 168, 0.2)");
+    gradient.addColorStop(0.5,"rgba(255, 255, 255, 0.5)");
+    gradient.addColorStop(1,"rgba(23, 210, 168, 0.2)");
+    
+    var index = -1;
+    var length = this.waves.length;
+	  while(++index < length){
+      this.waves[index].strokeStyle = gradient;
+    }
+    
+    // Clean Up
+    index = void 0;
+    length = void 0;
+    gradient = void 0;
+  }
     });
 
 }
