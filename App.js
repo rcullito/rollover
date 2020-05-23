@@ -19,20 +19,6 @@ export default function App() {
           <MotionButton></MotionButton>
           </View>
           <View style={styles.container} >
-    <TouchableHighlight onPress={()=>{
-        // Stop Animation
-        this._waveRect && this._waveRect.stopAnim();
-
-        // set water baseline height
-        this._waveRect && this._waveRect.setWaterHeight(70);
-
-        // reset wave effect
-        this._waveRect && this._waveRect.setWaveParams([
-            {A: 10, T: 180, fill: '#FF9F2E'},
-            {A: 15, T: 140, fill: '#F08200'},
-            {A: 20, T: 100, fill: '#B36100'},
-        ]);
-    }}>
     <Wave
         ref={ref=>this._waveRect = ref}
         style={styles.wave}
@@ -44,7 +30,6 @@ export default function App() {
         ]}
         animated={true}
     />
-    </TouchableHighlight>
 </View>
 
           </ImageBackground>
