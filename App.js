@@ -21,9 +21,9 @@ export default function App() {
         style={styles.wave}
         H={30}
         waveParams={[
-            {A: 10, T: 180, fill: '#62c2ff'},
-            {A: 15, T: 140, fill: '#0087dc'},
-            {A: 20, T: 100, fill: '#1aa7ff'},
+            {A: 10, T: 300, fill: '#62c2ff'},
+            {A: 15, T: 350, fill: '#0087dc'},
+            {A: 20, T: 400, fill: '#1aa7ff'},
         ]}
         animated={true}
     />

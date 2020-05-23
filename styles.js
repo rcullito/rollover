@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         color: '#fff'
     },
     wave: {
-        width: 100,
+        width: '100%',
         aspectRatio: 1,
         overflow: 'hidden'
     }
