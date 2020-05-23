@@ -22,6 +22,18 @@ const styles = StyleSheet.create({
     motionButtonText: {
         fontSize: 20,
         color: '#fff'
+    },
+    wave: {
+        width: 100,
+        aspectRatio: 1,
+        overflow: 'hidden',
+        backgroundColor: 'white',
+    },
+    waveBall: {
+        width: 100,
+        aspectRatio: 1,
+        borderRadius: 50,
+        overflow: 'hidden',
     }
 });
 
