@@ -26,8 +26,7 @@ const styles = StyleSheet.create({
     wave: {
         width: 100,
         aspectRatio: 1,
-        overflow: 'hidden',
-        backgroundColor: 'white',
+        overflow: 'hidden'
     }
 });
 
