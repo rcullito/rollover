@@ -28,12 +28,6 @@ const styles = StyleSheet.create({
         aspectRatio: 1,
         overflow: 'hidden',
         backgroundColor: 'white',
-    },
-    waveBall: {
-        width: 100,
-        aspectRatio: 1,
-        borderRadius: 50,
-        overflow: 'hidden',
     }
 });
 

@@ -7,9 +7,6 @@ import Wave from 'react-native-waveview';
 
 const intro = 'Rollover: an app designed to help make you more aware of your movements during sleep';
 
-
-
-
 export default function App() {
 
   return (
