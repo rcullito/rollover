@@ -19,10 +19,10 @@ class MotionButton extends React.Component {
 
         if (this.state.inmotion) {
             stopDeviceMotion();
-            makeWaves('waves', [0, 0, 0, 0]);
+//            makeWaves('waves', [0, 0, 0, 0]);
         } else {
             startDeviceMotion();
-            makeWaves('waves', [25, 50, 100, 150]);
+//            makeWaves('waves', [25, 50, 100, 150]);
         }
         
         this.setState({

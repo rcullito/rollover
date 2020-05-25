@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     },
     wave: {
         width: '100%',
-        aspectRatio: 1,
+        aspectRatio: 1, // this is necessary for the svg to work as intended
         overflow: 'hidden'
     }
 });
