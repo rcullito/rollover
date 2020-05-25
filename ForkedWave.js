@@ -94,7 +94,7 @@ class ForkedWave extends React.PureComponent {
                     viewBox={`0 0 ${3 * T} ${A + H}`}
                 >
                     <Path
-                        d={`M 0 0 Q ${T / 4} ${-A} ${T / 2} 0 T ${T} 0 T ${3 * T / 2} 0 T ${2 * T} 0 T ${5 * T / 2} 0 T ${3 * T} 0 V ${H} H 0 Z`}
+                        d={`M 0 0 Q ${T / 4} ${-A} ${T / 2} 0 T ${T} 0 T ${3 * T / 2} 0 T ${2 * T} 0 T ${5 * T / 2} 0 T ${3 * T} 0`}
                         fill={fill}
                         stroke={stroke}
                         transform={`translate(0, ${A})`}
