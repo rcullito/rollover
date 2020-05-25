@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ImageBackground, TouchableHighlight, Text, View } from 'react-native';
 import styles from './styles.js';
 import MotionButton from './MotionButton.js';
-import Wave from 'react-native-waveview';
+import RobWave from './wave.js';
 
 
 const intro = 'Rollover: an app designed to help make you more aware of your movements during sleep';
@@ -14,21 +14,8 @@ export default function App() {
           <View style={styles.container}>
           <Text style={styles.instructions}>{intro}</Text>
           <MotionButton></MotionButton>
+          <RobWave></RobWave>
           </View>
-          <View style={styles.container} >
-    <Wave
-        ref={ref=>this._waveRect = ref}
-        style={styles.wave}
-        H={30}
-        waveParams={[
-            {A: 10, T: 300, fill: '#62c2ff'},
-            {A: 15, T: 350, fill: '#0087dc'},
-            {A: 20, T: 400, fill: '#1aa7ff'},
-        ]}
-        animated={true}
-    />
-</View>
-
           </ImageBackground>
   );
 }
