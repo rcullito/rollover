@@ -11,7 +11,7 @@ class RobWave extends React.Component {
     render () {
         return (
                 <ForkedWave
-            ref={ref=>this._waveRect = ref}
+            ref={this.myRef}
             style={styles.wave}
             H={15}
             waveParams={[
