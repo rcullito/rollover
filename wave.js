@@ -15,7 +15,7 @@ class RobWave extends React.Component {
             style={styles.wave}
             H={15}
             waveParams={[
-                {A: 10, T: windowWidth, stroke: '#62c2ff', fill: 'none'},
+                {A: 10, T: windowWidth, stroke: '#8a2be2', fill: 'none'},
             ]}
             animated={true}
                 />
