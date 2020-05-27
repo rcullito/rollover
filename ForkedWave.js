@@ -5,6 +5,7 @@ import {
     View,
     Button,
     Animated,
+    Dimensions,
     StyleSheet,
     Easing,
 } from 'react-native';
@@ -13,6 +14,8 @@ import Svg, {
     Path,
 } from 'react-native-svg';
 
+
+const windowWidth = Dimensions.get('window').width;
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 
 /**
@@ -115,10 +118,10 @@ class ForkedWave extends React.PureComponent {
                 }
                                                    }/>
                 <Button title="Learn More" onPress={() => {
-this.setWaveParams([
-            {A: 10, T: 180, fill: '#FF9F2E'},
-            {A: 15, T: 140, fill: '#F08200'},
-            {A: 20, T: 100, fill: '#B36100'},
+                    this.setWaveParams([
+            {A: 10, T: windowWidth, stroke: '#8a2be2', fill: 'none'}, // the original 
+            {A: 15, T: windowWidth, stroke: '#8a2be2', fill: 'none'},
+            {A: 20, T: windowWidth, stroke: '#8a2be2', fill: 'none'},
         ]);
                 }
                 }/>
