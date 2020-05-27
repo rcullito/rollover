@@ -124,7 +124,7 @@ class ForkedWave extends React.PureComponent {
             {A: 20, T: windowWidth, stroke: '#8a2be2', fill: 'none'},
         ]);
                 }
-                                                   }/>
+}/>
 <Button title="Back to one" onPress={() => {
                     this.setWaveParams([
             {A: 10, T: windowWidth, stroke: '#8a2be2', fill: 'none'}, // the original 
@@ -135,9 +135,32 @@ class ForkedWave extends React.PureComponent {
                     if (this._animated) {
                         this.stopAnim();
                     }
-
                 }
-                                                   }/>
+}/>
+                <Button title="Restart" onPress={() => {
+                    let {H, waveParams, animated} = this.props;
+                    
+                    this.state = {
+                        H,
+                        waveParams,
+                    };
+                    
+                    this._animValues = [];
+                    this._animations = [];
+                    this._animated = animated || false;
+                    
+                    for (let i = 0; i < this.state.waveParams.length; i++) {
+                        this._animValues.push(new Animated.Value(0));
+                    }
+
+                    this._animated = true;
+
+                    
+                    this.setWaveParams([
+            {A: 10, T: windowWidth, stroke: '#8a2be2', fill: 'none'}, // the original 
+        ]);
+                }
+}/>
                 
                 {waves}
             </View>
