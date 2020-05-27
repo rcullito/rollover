@@ -3,6 +3,7 @@
 import React from 'react';
 import {
     View,
+    Button,
     Animated,
     StyleSheet,
     Easing,
@@ -24,7 +25,7 @@ const AnimatedSvg = Animated.createAnimatedComponent(Svg);
  *          |        \      /        |  ^
  *          |         \    /         |  |
  *          |          \  /          |  |
- *          |           \/           |  H
+n *          |           \/           |  H
  *          |                        |  |
  *          |                        |  |
  * ---------+------------------------+__V___
@@ -105,7 +106,8 @@ class ForkedWave extends React.PureComponent {
         }
 
         return (
-            <View style={style} >
+                <View style={style} >
+                <Button title="Learn More" onPress={() => this.stopAnim()}/>
                 {waves}
             </View>
         );
