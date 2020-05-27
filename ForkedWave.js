@@ -107,11 +107,19 @@ class ForkedWave extends React.PureComponent {
 
         return (
                 <View style={style} >
-                <Button title="Learn More" onPress={() => {
+                <Button title="Start Wave" onPress={() => {
                     if (!this._animated) {
                         this.startAnim();
                     }
 
+                }
+                                                   }/>
+                <Button title="Learn More" onPress={() => {
+this.setWaveParams([
+            {A: 10, T: 180, fill: '#FF9F2E'},
+            {A: 15, T: 140, fill: '#F08200'},
+            {A: 20, T: 100, fill: '#B36100'},
+        ]);
                 }
                 }/>
                 {waves}
