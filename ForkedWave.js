@@ -110,58 +110,6 @@ class ForkedWave extends React.PureComponent {
 
         return (
                 <View style={style} >
-                <Button title="Start Wave" onPress={() => {
-                    if (!this._animated) {
-                        this.startAnim();
-                    }
-
-                }
-                                                   }/>
-                <Button title="Multiple Waves" onPress={() => {
-                    this.setWaveParams([
-            {A: 10, T: windowWidth, stroke: '#8a2be2', fill: 'none'}, // the original 
-            {A: 15, T: windowWidth, stroke: '#8a2be2', fill: 'none'},
-            {A: 20, T: windowWidth, stroke: '#8a2be2', fill: 'none'},
-        ]);
-                }
-}/>
-<Button title="Back to one" onPress={() => {
-                    this.setWaveParams([
-            {A: 10, T: windowWidth, stroke: '#8a2be2', fill: 'none'}, // the original 
-        ]);
-                }
-                                    }/>
-                <Button title="Stop Wave" onPress={() => {
-                    if (this._animated) {
-                        this.stopAnim();
-                    }
-                }
-}/>
-                <Button title="Restart" onPress={() => {
-                    let {H, waveParams, animated} = this.props;
-                    
-                    this.state = {
-                        H,
-                        waveParams,
-                    };
-                    
-                    this._animValues = [];
-                    this._animations = [];
-                    this._animated = animated || false;
-                    
-                    for (let i = 0; i < this.state.waveParams.length; i++) {
-                        this._animValues.push(new Animated.Value(0));
-                    }
-
-                    this._animated = true;
-
-                    
-                    this.setWaveParams([
-            {A: 10, T: windowWidth, stroke: '#8a2be2', fill: 'none'}, // the original 
-        ]);
-                }
-}/>
-                
                 {waves}
             </View>
         );
@@ -229,6 +177,60 @@ class ForkedWave extends React.PureComponent {
         this._animations = [];
         this._animated = false;
     }
+
+    robStart () {
+        if (!this._animated) {
+            this.startAnim();
+        }
+    }
+
+    robMultiple () {
+        this.setWaveParams([
+            {A: 10, T: windowWidth, stroke: '#8a2be2', fill: 'none'}, // the original 
+            {A: 15, T: windowWidth, stroke: '#8a2be2', fill: 'none'},
+            {A: 20, T: windowWidth, stroke: '#8a2be2', fill: 'none'},
+        ]);
+    }
+
+    robBackToOne () {
+        this.setWaveParams([
+            {A: 10, T: windowWidth, stroke: '#8a2be2', fill: 'none'}, // the original 
+        ]);
+    }
+
+    robStop () {
+        if (this._animated) {
+            this.stopAnim();
+        }
+    }
+
+    robRestart () {
+        // from the constructor
+        let {H, waveParams, animated} = this.props;
+
+        this.state = {
+            H,
+            waveParams,
+        };
+
+        this._animValues = [];
+        this._animations = [];
+        this._animated = animated || false;
+        
+        for (let i = 0; i < this.state.waveParams.length; i++) {
+            this._animValues.push(new Animated.Value(0));
+        }
+
+        // rob edit, only logical before we setWaveParams
+        this._animated = true;
+        
+        
+        this.setWaveParams([
+            {A: 10, T: windowWidth, stroke: '#8a2be2', fill: 'none'}, // the original 
+        ]);
+
+    }
+    
 };
 
 export default ForkedWave;
