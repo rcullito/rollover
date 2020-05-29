@@ -24,9 +24,9 @@ class MotionButton extends React.Component {
             stopDeviceMotion();
 
         } else {
-             this.props.motionActions.startMotion();
-            startDeviceMotion();
-
+            this.props.motionActions.startMotion();
+            // wait 5 seconds before actually starting
+            setTimeout(function(){ startDeviceMotion(); }, 5000);
         }
         
         this.setState({
