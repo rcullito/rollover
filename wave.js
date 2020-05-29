@@ -20,8 +20,14 @@ class RobWave extends React.Component {
     componentDidUpdate(prevProps) {
         console.log(this.props);
 
+
+        // TODO make this a JS case statement
         if (this.props.motion.motion == 'started') {
             this.myRef.current.robStart();
+        }
+        // causing an effect but something is off, overall good job :)
+        if (this.props.motion.motion == 'stopped') {
+            this.myRef.current.robStop();
         }
         
     }
