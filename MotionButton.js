@@ -1,5 +1,8 @@
 import * as React from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import styles from './styles.js';
+import * as motionActions from './src/actions/motionActions';
 import {Text, TouchableOpacity } from 'react-native';
 import { startDeviceMotion, stopDeviceMotion } from "./logic";
 
@@ -20,6 +23,7 @@ class MotionButton extends React.Component {
             stopDeviceMotion();
 
         } else {
+             this.props.motionActions.startMotion();
             startDeviceMotion();
 
         }
@@ -43,3 +47,20 @@ class MotionButton extends React.Component {
 }
 
 export default MotionButton;
+
+function mapStateToProps(state) {
+  return {
+    motion: state.motion
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    motionActions: bindActionCreators(motionActions, dispatch)
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MotionBUtton);
