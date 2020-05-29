@@ -1,3 +1,3 @@
 export default {
-  motion: []
+  motion: 'stopped'
 };
