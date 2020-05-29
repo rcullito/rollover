@@ -21,11 +21,11 @@ class MotionButton extends React.Component {
 
         if (this.state.inmotion) {
             this.props.motionActions.stopMotion();            
-//            stopDeviceMotion();
+            stopDeviceMotion();
 
         } else {
              this.props.motionActions.startMotion();
-//            startDeviceMotion();
+            startDeviceMotion();
 
         }
         
