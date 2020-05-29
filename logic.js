@@ -19,7 +19,7 @@ const evaluateDifference = (newValues) => {
 
         // we want a tangible difference, and starting value will be 0 so dont record deviation from that
         // as that is essentially just "turning on" the event listener
-        if ( Math.abs(difference) > 0.5 || oldRotationValue !== 0) {
+        if ( Math.abs(difference) > 0.5 && oldRotationValue !== 0) {
             console.log("toast"); // https://www.youtube.com/watch?v=fq6R39wWXGM
             console.log(oldRotationValue);
             store.dispatch(motionActions.startVibration());
