@@ -8,9 +8,8 @@ export default function motion(state = initialState.motion, action) {
       console.log('START_MOTION Action')
       return action;
     case STOP_MOTION:
-      newState = action.stuff;
       console.log('STOP_MOTION Action')
-      return newState;
+      return action;
     default:
       return state;
   }

@@ -20,6 +20,7 @@ class MotionButton extends React.Component {
     updateInmotion = () => {
 
         if (this.state.inmotion) {
+            this.props.motionActions.stopMotion();            
             stopDeviceMotion();
 
         } else {
@@ -46,8 +47,6 @@ class MotionButton extends React.Component {
   }
 }
 
-export default MotionButton;
-
 function mapStateToProps(state) {
   return {
     motion: state.motion
@@ -63,4 +62,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MotionBUtton);
+)(MotionButton);
