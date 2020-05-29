@@ -187,8 +187,8 @@ class ForkedWave extends React.PureComponent {
     robMultiple () {
         this.setWaveParams([
             {A: 10, T: windowWidth, stroke: '#8a2be2', fill: 'none'}, // the original 
-            {A: 15, T: windowWidth, stroke: '#8a2be2', fill: 'none'},
             {A: 20, T: windowWidth, stroke: '#8a2be2', fill: 'none'},
+            {A: 30, T: windowWidth, stroke: '#8a2be2', fill: 'none'},
         ]);
     }
 
