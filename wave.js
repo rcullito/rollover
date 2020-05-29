@@ -22,12 +22,12 @@ class RobWave extends React.Component {
 
 
         // TODO make this a JS case statement
-        if (this.props.motion.motion == 'started') {
+        if (this.props.motion.type == 'START_MOTION') {
             this.myRef.current.robStart();
         }
         // causing an effect but something is off, overall good job :)
-        if (this.props.motion.motion == 'stopped') {
-            this.myRef.current.robStop();
+        if (this.props.motion.type == 'START_VIBRATION') {
+            this.myRef.current.robMultiple();
         }
         
     }
