@@ -1,10 +1,6 @@
 import { Vibration } from 'react-native';
 import { DeviceMotion } from 'expo-sensors';
 
-const INITIALPAUSE = 50;
-const PAUSE = 3000;
-const PATTERN = [INITIALPAUSE, 1000, PAUSE, 3000, PAUSE, 5000];
-
 DeviceMotion.setUpdateInterval(1000);
 
 let oldRotations = [0,0,0];
@@ -20,7 +16,7 @@ const evaluateDifference = (newValues) => {
             console.log("toast"); // https://www.youtube.com/watch?v=fq6R39wWXGM
 //            console.log(oldRotationValue);
 //            console.log(newRotationValue);
-            Vibration.vibrate(PATTERN);
+            Vibration.vibrate(3000);
         }
         index++; 
     }
