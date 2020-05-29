@@ -3,7 +3,9 @@ import { DeviceMotion } from 'expo-sensors';
 import store from './src/store/configureStore';
 import * as motionActions from './src/actions/motionActions';
 
-DeviceMotion.setUpdateInterval(1000);
+DeviceMotion.setUpdateInterval(3000);
+
+const vibrationDuration = 4000;
 
 let oldRotations = [0,0,0];
 
@@ -23,7 +25,8 @@ const evaluateDifference = (newValues) => {
             console.log("toast"); // https://www.youtube.com/watch?v=fq6R39wWXGM
             console.log(oldRotationValue);
             store.dispatch(motionActions.startVibration());
-            Vibration.vibrate(3000);
+            Vibration.vibrate(vibrationDuration);
+            setTimeout(function(){ store.dispatch(motionActions.stopVibration()); }, vibrationDuration);
         }
         index++; 
     }

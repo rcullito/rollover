@@ -29,7 +29,11 @@ class RobWave extends React.Component {
         if (this.props.motion.type == 'START_VIBRATION') {
             this.myRef.current.robMultiple();
         }
-        
+
+        if (this.props.motion.type == 'STOP_VIBRATION') {
+            this.myRef.current.robBackToOne();
+        }
+
     }
     
     render () {
