@@ -18,9 +18,12 @@ class RobWave extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        console.log('updated');
-        console.log(prevProps);
         console.log(this.props);
+
+        if (this.props.motion.motion == 'started') {
+            this.myRef.current.robStart();
+        }
+        
     }
     
     render () {
