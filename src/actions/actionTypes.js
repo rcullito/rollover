@@ -1,2 +1,4 @@
 export const START_MOTION = 'START_MOTION';
 export const STOP_MOTION = 'STOP_MOTION';
+export const START_VIBRATION = 'START_VIBRATION';
+export const STOP_VIBRATION = 'STOP_VIBRATION';
