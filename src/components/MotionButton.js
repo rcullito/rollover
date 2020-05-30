@@ -1,8 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import styles from './styles.js';
-import * as motionActions from '../actions/motionActions';
+import {startMotion, stopMotion} from '../actions/motionActions';
 import {Text, TouchableOpacity } from 'react-native';
 
 class MotionButton extends React.Component {
@@ -11,9 +10,9 @@ class MotionButton extends React.Component {
       return (
               <TouchableOpacity onPress={() => {
                   if (this.props.motion == 'stopped') {
-                      this.props.motionActions.startMotion();                      
+                      this.props.dispatch(startMotion());
                   } else {
-                      this.props.motionActions.stopMotion();                      
+                      this.props.dispatch(stopMotion());
                   }
               }}
       style={styles.motionButton}>
@@ -31,13 +30,6 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    motionActions: bindActionCreators(motionActions, dispatch)
-  };
-}
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
 )(MotionButton);
