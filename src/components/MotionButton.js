@@ -4,43 +4,22 @@ import {bindActionCreators} from 'redux';
 import styles from './styles.js';
 import * as motionActions from '../actions/motionActions';
 import {Text, TouchableOpacity } from 'react-native';
-import { startDeviceMotion, stopDeviceMotion } from "../helpers/deviceRotation.js";
+
 
 class MotionButton extends React.Component {
-  constructor(props) {
-      super(props);
-      this.updateInmotion = this.updateInmotion.bind(this);
-    this.state = {
-      inmotion: false,
-    };
-  }
-
-    // TODO work with the subscription from the individual
-    // listener rather than having to remove all listeners
-    updateInmotion = () => {
-
-        if (this.state.inmotion) {
-            this.props.motionActions.stopMotion();            
-            stopDeviceMotion();
-
-        } else {
-            this.props.motionActions.startMotion();
-            // wait 5 seconds before actually starting
-            setTimeout(function(){ startDeviceMotion(); }, 5000);
-        }
-        
-        this.setState({
-            inmotion: !this.state.inmotion
-        });
-  }
-
 
   render() {
       return (
-              <TouchableOpacity onPress={this.updateInmotion}
+              <TouchableOpacity onPress={() => {
+                  if (this.props.motion.motion == 'stopped') {
+                      this.props.motionActions.startMotion();                      
+                  } else {
+                      this.props.motionActions.stopMotion();                      
+                  }
+              }}
       style={styles.motionButton}>
               <Text style={styles.motionButtonText}>
-              {this.state.inmotion ? 'Stop motion sensor' : 'Start motion sensor'}
+              {this.props.motion.motion == 'stopped' ? 'Start motion sensor' : 'Stop motion sensor'}
           </Text>
           </TouchableOpacity> 
       );
