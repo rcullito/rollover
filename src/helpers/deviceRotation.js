@@ -9,25 +9,22 @@ const vibrationDuration = 4000;
 
 let oldRotations = [0,0,0];
 
-const evaluateDifference = (newValues) => {
+const respondToMovement = () => {
+    store.dispatch(motionActions.startVibration());
+    setTimeout(function(){ store.dispatch(motionActions.stopVibration()); }, vibrationDuration);
+    Vibration.vibrate(vibrationDuration);
+}
 
+const evaluateDifference = (newValues) => {
     let index = 0;
     while (index < newValues.length) { 
-        let oldRotationValue = oldRotations[index];
-        let newRotationValue = newValues[index];
-        let difference = newRotationValue - oldRotationValue;
+        let difference = newValues[index] - oldRotations[index];
 
-        // TODO we may also need to throttle. fun!
-
-        // we want a tangible difference, and starting value will be 0 so dont record deviation from that
-        // as that is essentially just "turning on" the event listener
         if ( Math.abs(difference) > 0.5 && oldRotationValue !== 0) {
-            console.log("toast"); // https://www.youtube.com/watch?v=fq6R39wWXGM
             console.log(oldRotationValue);
-            store.dispatch(motionActions.startVibration());
-            Vibration.vibrate(vibrationDuration);
-            setTimeout(function(){ store.dispatch(motionActions.stopVibration()); }, vibrationDuration);
+            respondToMovement();
         }
+
         index++; 
     }
 
