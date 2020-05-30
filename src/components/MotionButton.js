@@ -5,7 +5,6 @@ import styles from './styles.js';
 import * as motionActions from '../actions/motionActions';
 import {Text, TouchableOpacity } from 'react-native';
 
-
 class MotionButton extends React.Component {
 
   render() {

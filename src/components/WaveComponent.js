@@ -19,25 +19,22 @@ class RobWave extends React.Component {
 
     componentDidUpdate(prevProps) {
 
-        // TODO make this a JS case statement
-        if (this.props.motion.type == 'START_MOTION') {
-            this.myRef.current.robStart();
-            setTimeout(function(){ startDeviceMotion(); }, 5000);
+        switch (this.props.motion.type) {
+          case 'START_MOTION':
+              this.myRef.current.robStart();
+              setTimeout(function(){ startDeviceMotion(); }, 5000);
+              break;
+          case 'START_VIBRATION':
+              this.myRef.current.robMultiple();
+              break;
+          case 'STOP_VIBRATION':
+              this.myRef.current.robBackToOne();
+              break;
+          case 'STOP_MOTION':
+              this.myRef.current.robStop();
+              stopDeviceMotion();
+              break;
         }
-
-        if (this.props.motion.type == 'START_VIBRATION') {
-            this.myRef.current.robMultiple();
-        }
-
-        if (this.props.motion.type == 'STOP_VIBRATION') {
-            this.myRef.current.robBackToOne();
-        }
-
-        if (this.props.motion.type == 'STOP_MOTION') {
-            this.myRef.current.robStop();
-            stopDeviceMotion();
-        }
-        
     }
     
     render () {
