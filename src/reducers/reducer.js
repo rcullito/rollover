@@ -1,8 +1,8 @@
 import initialState from './initialState';
 import {START_MOTION, STOP_MOTION, START_VIBRATION, STOP_VIBRATION} from '../actions/actionTypes';
 
-export default function motion(state = initialState.motion, action) {
-  let newState;
+export default function motion(state = initialState, action) {
+
   switch (action.type) {
     case START_MOTION:
       return action;
@@ -15,4 +15,5 @@ export default function motion(state = initialState.motion, action) {
     default:
       return state;
   }
+
 }

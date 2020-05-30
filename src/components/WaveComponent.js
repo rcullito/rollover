@@ -19,7 +19,7 @@ class RobWave extends React.Component {
 
     componentDidUpdate(prevProps) {
 
-        switch (this.props.motion.type) {
+        switch (this.props.motionType) {
           case 'START_MOTION':
               this.myRef.current.robStart();
               setTimeout(function(){ startDeviceMotion(); }, 5000);
@@ -54,7 +54,7 @@ class RobWave extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    motion: state.motion
+    motionType: state.type
   };
 }
 

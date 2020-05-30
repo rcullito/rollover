@@ -10,7 +10,7 @@ class MotionButton extends React.Component {
   render() {
       return (
               <TouchableOpacity onPress={() => {
-                  if (this.props.motion.motion == 'stopped') {
+                  if (this.props.motion == 'stopped') {
                       this.props.motionActions.startMotion();                      
                   } else {
                       this.props.motionActions.stopMotion();                      
@@ -18,7 +18,7 @@ class MotionButton extends React.Component {
               }}
       style={styles.motionButton}>
               <Text style={styles.motionButtonText}>
-              {this.props.motion.motion == 'stopped' ? 'Start motion sensor' : 'Stop motion sensor'}
+              {this.props.motion == 'stopped' ? 'Start motion sensor' : 'Stop motion sensor'}
           </Text>
           </TouchableOpacity> 
       );
