@@ -6,10 +6,13 @@ import {Text, TouchableOpacity } from 'react-native';
 
 class MotionButton extends React.Component {
 
-  render() {
+    render() {
+
+        let motion = this.props.motion;
+        
       return (
               <TouchableOpacity onPress={() => {
-                  if (this.props.motion == 'stopped') {
+                  if (motion == 'stopped') {
                       this.props.dispatch(startMotion());
                   } else {
                       this.props.dispatch(stopMotion());
@@ -17,7 +20,7 @@ class MotionButton extends React.Component {
               }}
       style={styles.motionButton}>
               <Text style={styles.motionButtonText}>
-              {this.props.motion == 'stopped' ? 'Start motion sensor' : 'Stop motion sensor'}
+              {motion == 'stopped' ? 'Start motion sensor' : 'Stop motion sensor'}
           </Text>
           </TouchableOpacity> 
       );
