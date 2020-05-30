@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { TouchableHighlight, Dimensions } from 'react-native';
-import ForkedWave from './ForkedWave.js';
+import WaveSource from './WaveSource.js';
 import styles from './styles.js';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as motionActions from './src/actions/motionActions';
+import * as motionActions from '../actions/motionActions';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -38,7 +38,7 @@ class RobWave extends React.Component {
     
     render () {
         return (
-                <ForkedWave
+                <WaveSource
             ref={this.myRef}
             style={styles.wave}
             H={15}

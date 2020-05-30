@@ -2,9 +2,9 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import styles from './styles.js';
-import * as motionActions from './src/actions/motionActions';
+import * as motionActions from '../actions/motionActions';
 import {Text, TouchableOpacity } from 'react-native';
-import { startDeviceMotion, stopDeviceMotion } from "./logic";
+import { startDeviceMotion, stopDeviceMotion } from "../helpers/deviceRotation.js";
 
 class MotionButton extends React.Component {
   constructor(props) {

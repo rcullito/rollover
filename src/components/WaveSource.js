@@ -41,7 +41,7 @@ n *          |           \/           |  H
  * @prop {Array} waveParams list of params: {A, T, fill, stroke}
  * @prop {bool} animated
  */
-class ForkedWave extends React.PureComponent {
+class WaveSource extends React.PureComponent {
     constructor(props) {
         super(props);
 
@@ -233,4 +233,4 @@ class ForkedWave extends React.PureComponent {
     
 };
 
-export default ForkedWave;
+export default WaveSource;

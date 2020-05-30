@@ -1,7 +1,7 @@
 import { Vibration } from 'react-native';
 import { DeviceMotion } from 'expo-sensors';
-import store from './src/store/configureStore';
-import * as motionActions from './src/actions/motionActions';
+import store from '../store/configureStore';
+import * as motionActions from '../actions/motionActions';
 
 DeviceMotion.setUpdateInterval(2200);
 
