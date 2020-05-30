@@ -8,14 +8,14 @@ class MotionButton extends React.Component {
 
     render() {
 
-        let motion = this.props.motion;
+        const {motion, dispatch} = this.props;
         
       return (
               <TouchableOpacity onPress={() => {
                   if (motion == 'stopped') {
-                      this.props.dispatch(startMotion());
+                      dispatch(startMotion());
                   } else {
-                      this.props.dispatch(stopMotion());
+                      dispatch(stopMotion());
                   }
               }}
       style={styles.motionButton}>
