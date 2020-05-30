@@ -1,8 +1,18 @@
-import {combineReducers} from 'redux';
-import motion from './motionReducer';
+import initialState from './initialState';
+import {START_MOTION, STOP_MOTION, START_VIBRATION, STOP_VIBRATION} from '../actions/actionTypes';
 
-const rootReducer = combineReducers({
-  motion
-});
-
-export default rootReducer;
+export default function motion(state = initialState.motion, action) {
+  let newState;
+  switch (action.type) {
+    case START_MOTION:
+      return action;
+    case STOP_MOTION:
+      return action;
+    case START_VIBRATION:
+      return action;
+  case STOP_VIBRATION:
+      return action;
+    default:
+      return state;
+  }
+}
