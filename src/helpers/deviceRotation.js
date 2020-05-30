@@ -8,11 +8,23 @@ DeviceMotion.setUpdateInterval(2200);
 const vibrationDuration = 4000;
 
 let oldRotations = [0,0,0];
+let okToStartVibrationMethods = true;
+
+const startVibrationMethods = () => {
+    store.dispatch(motionActions.startVibration());
+    Vibration.vibrate(vibrationDuration);
+    okToStartVibrationMethods = false;
+}
+
+const stopVibrationMethods = () => {
+    store.dispatch(motionActions.stopVibration());
+    okToStartVibrationMethods = true;
+}
 
 const respondToMovement = () => {
-    store.dispatch(motionActions.startVibration());
-    setTimeout(function(){ store.dispatch(motionActions.stopVibration()); }, vibrationDuration);
-    Vibration.vibrate(vibrationDuration);
+    // we should not start vibration until previous one has stopped
+    startVibrationMethods();
+    setTimeout(stopVibrationMethods, vibrationDuration);
 }
 
 const evaluateDifference = (newValues) => {
@@ -22,7 +34,9 @@ const evaluateDifference = (newValues) => {
 
         if ( Math.abs(difference) > 0.5 && oldRotationValue !== 0) {
             console.log(oldRotationValue);
-            respondToMovement();
+            if (okToStartVibrationMethods) {
+                respondToMovement();
+            }
         }
 
         index++; 
