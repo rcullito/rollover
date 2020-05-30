@@ -1,9 +1,9 @@
 import {createStore} from 'redux';
-import rootReducer from '../reducers/rootReducer';
+import reducer from '../reducers/reducer';
 
 function configureStore() {
   return createStore(
-      rootReducer,
+      reducer,
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   );
 }
