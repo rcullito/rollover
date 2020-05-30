@@ -5,7 +5,7 @@ import styles from './styles.js';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as motionActions from '../actions/motionActions';
-
+import { startDeviceMotion, stopDeviceMotion } from "../helpers/deviceRotation.js";
 const windowWidth = Dimensions.get('window').width;
 
 class RobWave extends React.Component {
@@ -18,14 +18,13 @@ class RobWave extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        console.log(this.props);
-
 
         // TODO make this a JS case statement
         if (this.props.motion.type == 'START_MOTION') {
             this.myRef.current.robStart();
+            setTimeout(function(){ startDeviceMotion(); }, 5000);
         }
-        // causing an effect but something is off, overall good job :)
+
         if (this.props.motion.type == 'START_VIBRATION') {
             this.myRef.current.robMultiple();
         }
@@ -34,6 +33,11 @@ class RobWave extends React.Component {
             this.myRef.current.robBackToOne();
         }
 
+        if (this.props.motion.type == 'STOP_MOTION') {
+            this.myRef.current.robStop();
+            stopDeviceMotion();
+        }
+        
     }
     
     render () {
@@ -45,7 +49,6 @@ class RobWave extends React.Component {
             waveParams={[
                 {A: 10, T: windowWidth, stroke: '#8a2be2', fill: 'none'},
             ]}
-            rob={this.props.motion}
             animated={false}
                 />
         )
