@@ -60,7 +60,8 @@ const startDeviceMotion = () => {
 }
 
 const stopDeviceMotion = () => {
-    
+    // TODO work with the subscription from the individual
+    // listener rather than having to remove all listeners
     DeviceMotion.removeAllListeners()
 
 }

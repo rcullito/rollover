@@ -1,3 +1,6 @@
 export default {
-  motion: 'stopped'
-};
+  motion: {
+    type: 'STOP_MOTION',
+    motion: 'stopped'
+  }
+}
