@@ -2,14 +2,15 @@
   "name": "rollover",
   "displayName": "rollover",
   "expo": {
-    "name": "rollover",
-    "slug": "rollover",
-    "version": "1.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+      "name": "rollover",
+      "slug": "rollover",
+      "version": "1.0.0",
+      "entryPoint": "./src/index.js",
+      "platforms": [
+          "ios",
+          "android",
+          "web"
+      ],
     "assetBundlePatterns": [
       "**/*"
     ]
