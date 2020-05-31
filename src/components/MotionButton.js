@@ -13,10 +13,8 @@ class MotionButton extends React.Component {
       return (
               <TouchableOpacity onPress={() => {
                   if (motion !== 'started') {
-                      console.log('here we are in the start touchable opacity');
                       dispatch(startMotion());
                   } else {
-                      console.log('here we are in the stop touchable opacity');
                       dispatch(stopMotion());
                   }
               }}

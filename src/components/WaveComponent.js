@@ -15,6 +15,18 @@ class RobWave extends React.Component {
         this.myRef = React.createRef();
     }
 
+
+    shouldComponentUpdate(nextProps) {
+        console.log('inside should update');
+        console.log(nextProps);
+        if (nextProps.motionType == 'STOP_MOTION') {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
     componentDidUpdate(prevProps) {
 
         switch (this.props.motionType) {
@@ -23,8 +35,6 @@ class RobWave extends React.Component {
               setTimeout(function(){ startDeviceMotion(); }, 5000);
             break;
         case 'STOP_MOTION':
-            console.log('here we are in the updated subscription');
-            console.log(this.myRef.current);
             // TODO compare this to the ref we get when we start
 //              this.myRef.current.robStop();
 //              stopDeviceMotion();
