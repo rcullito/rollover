@@ -3,8 +3,6 @@ import { TouchableHighlight, Dimensions } from 'react-native';
 import WaveSource from './WaveSource.js';
 import styles from './styles.js';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import * as motionActions from '../actions/motionActions';
 import { startDeviceMotion, stopDeviceMotion } from "../helpers/deviceRotation.js";
 const windowWidth = Dimensions.get('window').width;
 
@@ -23,16 +21,19 @@ class RobWave extends React.Component {
           case 'START_MOTION':
               this.myRef.current.robStart();
               setTimeout(function(){ startDeviceMotion(); }, 5000);
+            break;
+        case 'STOP_MOTION':
+            console.log('here we are in the updated subscription');
+            console.log(this.myRef.current);
+            // TODO compare this to the ref we get when we start
+//              this.myRef.current.robStop();
+//              stopDeviceMotion();
               break;
           case 'START_VIBRATION':
               this.myRef.current.robMultiple();
               break;
           case 'STOP_VIBRATION':
               this.myRef.current.robBackToOne();
-              break;
-          case 'STOP_MOTION':
-              this.myRef.current.robStop();
-              stopDeviceMotion();
               break;
         }
     }
@@ -58,13 +59,6 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    motionActions: bindActionCreators(motionActions, dispatch)
-  };
-}
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
 )(RobWave);
