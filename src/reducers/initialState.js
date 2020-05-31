@@ -1,4 +1,4 @@
 export default {
-    type: 'STOP_MOTION',
-    motion: 'stopped'
+    type: 'INIT_MOTION',
+    motion: 'init'
 }

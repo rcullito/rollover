@@ -12,15 +12,17 @@ class MotionButton extends React.Component {
         
       return (
               <TouchableOpacity onPress={() => {
-                  if (motion == 'stopped') {
+                  if (motion !== 'started') {
+                      console.log('here we are in the start touchable opacity');
                       dispatch(startMotion());
                   } else {
+                      console.log('here we are in the stop touchable opacity');
                       dispatch(stopMotion());
                   }
               }}
       style={styles.motionButton}>
               <Text style={styles.motionButtonText}>
-              {motion == 'stopped' ? 'Start motion sensor' : 'Stop motion sensor'}
+              {motion !== 'started' ? 'Start motion sensor' : 'Stop motion sensor'}
           </Text>
           </TouchableOpacity> 
       );
