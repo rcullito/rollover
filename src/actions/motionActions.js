@@ -10,9 +10,9 @@ export function stopMotion () {
 }
 
 export function startVibration () {
-    return {type: types.START_VIBRATION, vibrating: 'true'}
+    return {type: types.START_VIBRATION}
 }
 
 export function stopVibration () {
-    return {type: types.STOP_VIBRATION, vibrating: 'false'}
+    return {type: types.STOP_VIBRATION}
 }
