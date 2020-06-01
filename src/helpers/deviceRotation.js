@@ -32,11 +32,8 @@ const evaluateDifference = (newValues) => {
     while (index < newValues.length) { 
         let difference = newValues[index] - oldRotations[index];
 
-        if ( Math.abs(difference) > 0.5 && oldRotations[index] !== 0) {
-
-            if (okToStartVibrationMethods) {
-                respondToMovement();
-            }
+        if ( Math.abs(difference) > 0.5 && oldRotations[index] !== 0 && okToStartVibrationMethods) {
+            respondToMovement();
         }
 
         index++; 
