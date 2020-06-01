@@ -16,7 +16,7 @@ class RobWave extends React.Component {
     }
 
     shouldComponentUpdate(nextProps) {
-        if (nextProps.motionType == 'STOP_MOTION') {
+        if (nextProps.actionType == 'STOP_MOTION') {
             this.myRef.current.robStop();
             return false;
         } else {
@@ -26,7 +26,7 @@ class RobWave extends React.Component {
 
     componentDidUpdate(prevProps) {
 
-        switch (this.props.motionType) {
+        switch (this.props.actionType) {
           case 'START_MOTION':
               this.myRef.current.robStart();
               setTimeout(function(){ startDeviceMotion(); }, 5000);
@@ -59,8 +59,11 @@ class RobWave extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    motionType: state.type
+    return {
+        actionType: state.type
+        motion: state.motion,
+        vibrating: state.vibrating,
+        hasBeenStarted: state.hasBeenStarted
   };
 }
 
