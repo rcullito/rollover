@@ -28,7 +28,7 @@ const maybeRespondToMovement = (difference, oldRotationValue) => {
     }
 }
 
-const evaluateDifference = (newValues) => {
+const compareAgainstPreviousOrientation = (newValues) => {
     let index = 0;
     while (index < newValues.length) { 
         let difference = newValues[index] - oldRotations[index];
@@ -48,7 +48,7 @@ const startDeviceMotion = () => {
         let rotation = motionData['rotation'];
         if (rotation) {
             let newRotations = [rotation['alpha'], rotation['beta'], rotation['gamma']];
-            evaluateDifference(newRotations);
+            compareAgainstPreviousOrientation(newRotations);
         }
         
     });
