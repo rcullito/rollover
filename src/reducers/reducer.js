@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import {START_MOTION, STOP_MOTION, START_VIBRATION, STOP_VIBRATION} from '../actions/actionTypes';
+import {START_MOTION} from '../actions/actionTypes';
 
 export default function motion(state = initialState, action) {
 
