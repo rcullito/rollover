@@ -1,4 +1,5 @@
 export default {
-    type: 'INIT_MOTION',
+    vibrating: false,
+    hasBeenStarted: false,
     motion: 'init'
 }
