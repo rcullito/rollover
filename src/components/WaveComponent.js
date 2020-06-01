@@ -27,12 +27,16 @@ class RobWave extends React.Component {
     componentDidUpdate(prevProps) {
 
         switch (this.props.actionType) {
-          case 'START_MOTION':
-              this.myRef.current.robStart();
+        case 'START_MOTION':
+            if (this.props.hasBeenStarted) {
+                this.myRef.current.robRestart();
+            } else {
+                this.myRef.current.robStart();
+            }
               setTimeout(function(){ startDeviceMotion(); }, 5000);
             break;
         case 'STOP_MOTION':
-//              stopDeviceMotion();
+              stopDeviceMotion();
               break;
           case 'START_VIBRATION':
               this.myRef.current.robMultiple();
