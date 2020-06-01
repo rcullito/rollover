@@ -65,8 +65,6 @@ class RobWave extends React.Component {
 function mapStateToProps(state) {
     return {
         actionType: state.type,
-        motion: state.motion,
-        vibrating: state.vibrating,
         hasBeenStarted: state.hasBeenStarted
   };
 }
