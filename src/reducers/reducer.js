@@ -5,9 +5,9 @@ export default function motion(state = initialState, action) {
 
   switch (action.type) {
   case START_MOTION:
-      return Object.assign({hasBeenStarted: true, motion: action.motion}, state);
+      return Object.assign({}, state, {hasBeenStarted: true}, action);
     default:
-      return Object.assign(action, state);
+      return Object.assign({}, state, action);
   }
 
 }
