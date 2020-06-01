@@ -21,10 +21,11 @@ const stopVibrationMethods = () => {
     okToStartVibrationMethods = true;
 }
 
-const respondToMovement = () => {
-    // we should not start vibration until previous one has stopped
-    startVibrationMethods();
-    setTimeout(stopVibrationMethods, vibrationDuration);
+const maybeRespondToMovement = (difference, oldRotationValue) => {
+    if (Math.abs(difference) > 0.5 && oldRotationValue !== 0 && okToStartVibrationMethods) {
+        startVibrationMethods();
+        setTimeout(stopVibrationMethods, vibrationDuration);
+    }
 }
 
 const evaluateDifference = (newValues) => {
@@ -32,9 +33,7 @@ const evaluateDifference = (newValues) => {
     while (index < newValues.length) { 
         let difference = newValues[index] - oldRotations[index];
 
-        if ( Math.abs(difference) > 0.5 && oldRotations[index] !== 0 && okToStartVibrationMethods) {
-            respondToMovement();
-        }
+        maybeRespondToMovement(difference, oldRotations[index]);
 
         index++; 
     }
