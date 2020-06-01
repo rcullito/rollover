@@ -5,6 +5,7 @@
       "name": "rollover",
       "slug": "rollover",
       "version": "1.0.0",
+      "orientation": "portrait",
       "entryPoint": "./src/index.js",
       "platforms": [
           "ios",
