@@ -29,6 +29,7 @@ export default class Component extends React.Component {
     const { status } = await Location.requestPermissionsAsync();
     if (status === 'granted') {
         await Location.startLocationUpdatesAsync(LOCATION_TASK_NAME, {
+            // there are some options that we can work with here
         accuracy: Location.Accuracy.Balanced,
       });
     }
