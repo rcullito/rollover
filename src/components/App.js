@@ -1,26 +1,47 @@
 import * as React from 'react';
-import { ImageBackground, TouchableHighlight, Text, View } from 'react-native';
+import { ImageBackground, TouchableOpacity, TouchableHighlight, Text, View } from 'react-native';
 import { Provider } from 'react-redux'
 import store from '../store/configureStore';
 import styles from './styles.js';
 import MotionButton from './MotionButton.js';
 import RobWave from './WaveComponent.js';
 
-const intro = 'Rollover: an app designed to help make you more aware of your movements during sleep';
+import * as TaskManager from 'expo-task-manager';
+import * as Location from 'expo-location';
+const LOCATION_TASK_NAME = 'background-location-task';
 
-export default function App() {
 
+TaskManager.defineTask(LOCATION_TASK_NAME, ({ data, error }) => {
+  if (error) {
+    // Error occurred - check `error.message` for more details.
+    return;
+  }
+  if (data) {
+    const { locations } = data;
+      // do something with the locations captured in the background
+      console.log(locations);
+  }
+});
+
+
+export default class Component extends React.Component {
+  onPress = async () => {
+    const { status } = await Location.requestPermissionsAsync();
+    if (status === 'granted') {
+        await Location.startLocationUpdatesAsync(LOCATION_TASK_NAME, {
+        accuracy: Location.Accuracy.Balanced,
+      });
+    }
+  };
+
+  render() {
     return (
-        
-            <ImageBackground source={require('../assets/images/starry-sky.jpg')} style={styles.container}>
-            <Provider store={store}>
-          <View style={styles.container}>
-          <Text style={styles.instructions}>{intro}</Text>
-          <MotionButton></MotionButton>
-          <RobWave></RobWave>
-            </View>
-            </Provider>
-          </ImageBackground>
-  );
+            <TouchableOpacity style={{margin: 30}} onPress={this.onPress}>
+        <Text>Enable background location</Text>
+      </TouchableOpacity>
+    );
+  }
 }
+
+
 
